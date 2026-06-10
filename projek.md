@@ -348,22 +348,24 @@ height="0.6562882764654419in"}
 
 Berikut detail perbedaannya :
 
-  ------------------------------- -------------------------------
+---
+
      **Virtual Machine (VM)**              **Container**
      Memiliki Guest OS sendiri        Berbagi kernel host OS
         Ukuran lebih besar                 Lebih ringan
         Booting lebih lama             Startup sangat cepat
       Menggunakan hypervisor       Menggunakan container runtime
         Isolasi lebih penuh            Isolasi level proses
-   Resource CPU/RAM lebih banyak       Resource lebih hemat
-  ------------------------------- -------------------------------
+
+Resource CPU/RAM lebih banyak Resource lebih hemat
+
+---
 
 2.  Apa fungsi dari containerd dan runc dalam arsitektur Docker?
 
 > Jawab :
 
 - containerd
-
   - Bertugas mengelola lifecycle container.
 
   - Mengatur image, storage, networking, dan container execution.
@@ -371,7 +373,6 @@ Berikut detail perbedaannya :
   - Menjadi perantara antara Docker Engine dan low-level runtime.
 
 - runc
-
   - Low-level runtime untuk menjalankan container sesuai standar OCI
     (Open Container Initiative).
 
@@ -398,7 +399,6 @@ Docker CLI → Docker Engine → containerd → runc → Container berjalan.
 > berjalan di Linux. Di Windows, Docker Desktop mengatasinya dengan:
 
 - menjalankan Linux kernel ringan menggunakan:
-
   - WSL2 (Windows Subsystem for Linux 2), atau
 
   - VM kecil berbasis Hyper-V.
@@ -617,7 +617,7 @@ Dr Ferry Astika Saputra ST, M.Sc
 > ![](media/media/image141.png){width="5.739583333333333in"
 > height="4.963542213473316in"}
 
-#### 1.3 Test DNS resolution antar container
+#### 1.3 Test DNS resolution antar container✅2 ✅2
 
 > \# Jalankan 2 container di network yang sama
 >
@@ -641,7 +641,7 @@ Dr Ferry Astika Saputra ST, M.Sc
 
 ### **Langkah 2: Docker Volume**
 
-#### 2.1 Buat dan kelola volume
+#### 2.1 Buat dan kelola volume ✅2
 
 ![](media/media/image6.png){width="5.751405293088364in"
 height="3.09375in"}
@@ -671,7 +671,7 @@ docker run \--rm -v data-vol:/data alpine:3.20 cat /data/log.txt
 ![](media/media/image203.png){width="5.588542213473316in"
 height="2.7916666666666665in"}
 
-#### 2.4 Backup dan restore volume
+#### 2.4 Backup dan restore volume ✅2
 
 ![](media/media/image100.png){width="5.604166666666667in"
 height="3.9872976815398076in"}
@@ -690,7 +690,7 @@ height="3.9872976815398076in"}
 ![](media/media/image110.png){width="5.723958880139983in"
 height="1.3229166666666667in"}
 
-#### 3.3 Test live-reload
+#### 3.3 Test live-reload ✅2
 
 > \# curl [[http://localhost:8080]{.underline}](http://localhost:8080)
 >
@@ -702,7 +702,7 @@ height="1.3229166666666667in"}
 > ![](media/media/image4.png){width="5.807292213473316in"
 > height="3.8125in"}
 
-### **Langkah 4: tmpfs Mount**
+### **Langkah 4: tmpfs Mount** ✅2
 
 ![](media/media/image3.png){width="5.734375546806649in"
 height="0.625in"}
@@ -744,7 +744,7 @@ height="2.0468952318460194in"}
 ![](media/media/image42.png){width="5.645833333333333in"
 height="5.126025809273841in"}
 
-#### 5.6 Jalankan dan verifikasi
+#### 5.6 Jalankan dan verifikasi ✅2
 
 > \# Build dan start
 >
@@ -756,7 +756,7 @@ height="5.126025809273841in"}
 > ![](media/media/image200.png){width="6.015625546806649in"
 > height="1.28125in"}
 >
-> \# Test
+> \# Test ✅2 ✅2
 >
 > ![](media/media/image17.png){width="6.267716535433071in"
 > height="5.666666666666667in"}
@@ -771,7 +771,7 @@ height="5.126025809273841in"}
 > ![](media/media/image129.png){width="6.286458880139983in"
 > height="1.9166666666666667in"}
 >
-> \# Lifecycle
+> \# Lifecycle ✅2
 >
 > ![](media/media/image156.png){width="6.265625546806649in"
 > height="0.8541666666666666in"}
@@ -1028,7 +1028,7 @@ height="4.194444444444445in"}
 ![](media/media/image136.png){width="5.902777777777778in"
 height="2.8333333333333335in"}
 
-**Langkah 2: Generate Self-Signed SSL Certificate**
+**Langkah 2: Generate Self-Signed SSL Certificate** ✅3
 
 \# Generate SSL certificate untuk \*.lab (wildcard)
 
@@ -1080,7 +1080,7 @@ echo \"127.0.0.1 site1.lab site2.lab app.lab\" \| sudo tee -a /etc/hosts
 ![](media/media/image117.png){width="5.902777777777778in"
 height="0.5138888888888888in"}
 
-6.2 Build dan jalankan
+6.2 Build dan jalankan ✅3
 
 docker compose up \--build -d
 
@@ -1091,14 +1091,14 @@ height="5.972222222222222in"}
 
 6.3 Test Virtual Host Apache via Nginx Proxy
 
-\# Test HTTP → HTTPS redirect
+\# Test HTTP → HTTPS redirect ✅3
 
 curl -I http://site1.lab:8080
 
 ![](media/media/image115.png){width="5.902777777777778in"
 height="0.9027777777777778in"}
 
-\# Test Site 1 (Apache via Nginx proxy, skip SSL verify)
+\# Test Site 1 (Apache via Nginx proxy, skip SSL verify) ✅3
 
 curl -k https://site1.lab:8443
 
@@ -1107,7 +1107,7 @@ curl -k https://site1.lab:8443
 ![](media/media/image148.png){width="5.902777777777778in"
 height="1.4027777777777777in"}
 
-\# Test Site 2
+\# Test Site 2 ✅3
 
 curl -k https://site2.lab:8443
 
@@ -1116,7 +1116,7 @@ curl -k https://site2.lab:8443
 ![](media/media/image59.png){width="5.902777777777778in"
 height="1.3888888888888888in"}
 
-\# Test Flask API
+\# Test Flask API ✅3 ✅3
 
 curl -k https://app.lab:8443
 
@@ -1125,7 +1125,7 @@ curl -k https://app.lab:8443/api/health \| python3 -m json.tool
 ![](media/media/image108.png){width="5.902777777777778in"
 height="1.4166666666666667in"}
 
-6.4 Test API CRUD
+6.4 Test API CRUD ✅3
 
 \# Tambah visitor
 
@@ -1138,7 +1138,7 @@ curl -k -X POST https://app.lab:8443/api/visitors \\
 ![](media/media/image23.png){width="5.902777777777778in"
 height="0.4444444444444444in"}
 
-\# Lihat daftar visitor
+\# Lihat daftar visitor ✅3
 
 curl -k https://app.lab:8443/api/visitors \| python3 -m json.tool
 
@@ -1157,7 +1157,7 @@ openssl x509 -noout -subject -issuer -dates
 ![](media/media/image53.png){width="5.902777777777778in"
 height="0.75in"}
 
-6.6 Analisis Log
+6.6 Analisis Log ✅3
 
 \# Log Nginx
 
@@ -1194,25 +1194,25 @@ height="0.8333333333333334in"}
 
 <!-- -->
 
-1.  **Isolasi environment\**
+1.  \*\*Isolasi environment\*\*
     Apache/Nginx berjalan terpisah dari sistem host sehingga konflik
     package/config lebih kecil.
 
-2.  **Portabilitas\**
+2.  \*\*Portabilitas\*\*
     Container bisa dijalankan di laptop, VM, cloud, maupun server lain
     dengan hasil yang sama.
 
-3.  **Mudah deployment\**
+3.  \*\*Mudah deployment\*\*
     Tinggal docker run atau docker compose up, tanpa install manual di
     host.
 
-4.  **Resource lebih ringan dibanding VM\**
+4.  \*\*Resource lebih ringan dibanding VM\*\*
     Container memakai kernel host sehingga lebih hemat RAM dan CPU.
 
-5.  **Mudah scaling & maintenance\**
+5.  \*\*Mudah scaling & maintenance\*\*
     Bisa membuat banyak instance web server dengan cepat.
 
-6.  **Rollback mudah\**
+6.  \*\*Rollback mudah\*\*
     Jika config/error, tinggal ganti image atau restart container lama.
 
 > ![](media/media/image68.png){width="5.744792213473316in"
@@ -1224,7 +1224,7 @@ height="0.8333333333333334in"}
 
 <!-- -->
 
-a.  Apache
+a. Apache
 
 > Document root default:\
 > /usr/local/apache2/htdocs/\
@@ -1232,7 +1232,7 @@ a.  Apache
 > ![](media/media/image181.png){width="5.859375546806649in"
 > height="0.4963921697287839in"}
 
-b.  nginx
+b. nginx
 
 Document root default:\
 /usr/share/nginx/html/\
@@ -1255,7 +1255,7 @@ SSL Termination adalah proses:
 
 Biasanya dilakukan di Nginx/HAProxy.
 
-### Dilakukan Reverse Proxy karena : 
+### Dilakukan Reverse Proxy karena :
 
 1.  Mengurangi beban backend server
 
@@ -1310,7 +1310,6 @@ Contoh:
 - dibuat sendiri
 
 - tidak ditandatangani CA terpercaya seperti:
-
   - Let\'s Encrypt
 
   - DigiCert
@@ -1335,11 +1334,11 @@ Browser tidak bisa memverifikasi identitas server sehingga muncul:
 > berbeda, tetapi identifikasi utama web server terdapat pada header
 > Server.
 
-A.  Nginx\
-    ![](media/media/image54.png){width="4.546875546806649in"
-    height="1.7604166666666667in"}
+A. Nginx\
+ ![](media/media/image54.png){width="4.546875546806649in"
+height="1.7604166666666667in"}
 
-B.  Apache
+B. Apache
 
 > ![](media/media/image186.png){width="4.630208880139983in"
 > height="1.9322922134733158in"}
@@ -1361,7 +1360,7 @@ B.  Apache
 > height="3.2634306649168856in"}
 
 3.  Tunjukkan bahwa X-Real-IP header diteruskan dengan benar dari Nginx
-    ke Flask.
+    ke Flask. ✅3
 
 > jawab :
 >
@@ -1440,7 +1439,7 @@ Dr Ferry Astika Saputra ST, M.Sc
 ![](media/media/image165.png){width="6.981726815398075in"
 height="0.48022419072615924in"}
 
-**Langkah 1: Deploy PostgreSQL dengan Docker Compose**
+**Langkah 1: Deploy PostgreSQL dengan Docker Compose** ✅4
 
 1.1 Buat init script (dijalankan saat pertama kali)
 
@@ -1793,7 +1792,7 @@ height="3.5694444444444446in"}
 ![](media/media/image93.png){width="5.467083333333333in"
 height="3.9583333333333335in"}
 
-1.4 Deploy
+1.4 Deploy ✅4
 
 docker compose up -d
 
@@ -1809,9 +1808,9 @@ height="2.361111111111111in"}
 ![](media/media/image130.png){width="5.902777777777778in"
 height="2.736111111111111in"}
 
-**Langkah 2: Koneksi dan Verifikasi Database**
+**Langkah 2: Koneksi dan Verifikasi Database** ✅4
 
-2.1 Koneksi via psql dari host
+2.1 Koneksi via psql dari host ✅4
 
 > \# Install psql client (jika belum)
 >
@@ -1876,14 +1875,13 @@ height="0.4444444444444444in"}
 ![](media/media/image170.png){width="5.902777777777778in"
 height="1.8194444444444444in"}
 
-2.3 Koneksi via pgAdmin4
+2.3 Koneksi via pgAdmin4 ✅4
 
 1.  Buka browser: http://localhost:5050
 
 2.  Login: admin@pens.ac.id / admin123
 
 3.  Add New Server:
-
     - Name: Lab PostgreSQL
 
     - Host: db (nama service di Docker Compose)
@@ -1907,7 +1905,7 @@ height="1.8194444444444444in"}
 > ![](media/media/image101.png){width="5.902777777777778in"
 > height="2.986111111111111in"}
 
-**Langkah 3: Operasi CRUD SQL**
+**Langkah 3: Operasi CRUD SQL** ✅4
 
 docker exec -it postgres-db psql -U labuser -d labdb \<\< \'SQLEOF\'
 
@@ -1968,7 +1966,7 @@ height="1.9114588801399826in"}
 
 **Langkah 4: Backup dan Restore**
 
-4.1 Backup database (pg_dump)
+4.1 Backup database (pg_dump)✅4
 
 > \# Backup dalam format custom (compressed, restorable)
 >
@@ -1995,7 +1993,7 @@ height="1.9114588801399826in"}
 ![](media/media/image146.png){width="5.902777777777778in"
 height="1.2361111111111112in"}
 
-4.2 Restore database
+4.2 Restore database ✅4
 
 > \# Buat database baru untuk restore test
 >
@@ -2010,8 +2008,7 @@ height="1.2361111111111112in"}
 >
 > \# Verifikasi restore
 >
-> docker exec postgres-db psql -U labuser -d labdb_restore -c \"SELECT
-> \* FROM app.mahasiswa;\"
+> docker exec postgres-db psql -U labuser -d labdb_restore -c \"SELECT \* FROM app.mahasiswa;\"
 
 ![](media/media/image189.png){width="5.876770559930009in"
 height="1.5in"}
@@ -2050,7 +2047,7 @@ height="1.5in"}
 
 **Langkah 5: Monitoring PostgreSQL**
 
-5.1 Statistik database
+5.1 Statistik database ✅4
 
 > docker exec -it postgres-db psql -U labuser -d labdb \<\< \'SQLEOF\'
 >
@@ -2100,7 +2097,7 @@ height="5.736111111111111in"}
 ![](media/media/image74.png){width="5.902777777777778in"
 height="5.569444444444445in"}
 
-5.2 Cek PostgreSQL log
+5.2 Cek PostgreSQL log ✅4
 
 > \# Lihat log PostgreSQL
 >
@@ -2109,7 +2106,7 @@ height="5.569444444444445in"}
 > docker exec postgres-db cat /var/log/postgresql/postgresql-\$(date
 > +%Y-%m-%d).log \| tail -30
 
-![](media/media/image175.png){width="6.04in" height="0.5in"}
+![](media/media/image175.png){width="6.04in" height="0.5in"}❌
 
 ## **[PERTANYAAN]{.underline}**
 
@@ -2191,7 +2188,8 @@ height="5.569444444444445in"}
 > ![](media/media/image22.png){width="5.557292213473316in"
 > height="3.1055457130358706in"}
 
-2.  Jalankan docker compose down -v lalu docker compose up -d. Apa yang
+2.  Jalankan docker compose down -v lalu docker compose up -d. Apa yang ✅4
+
     terjadi? Apakah init script dijalankan ulang?
 
 > jawab :
@@ -2503,7 +2501,7 @@ Dr Ferry Astika Saputra ST, M.Sc
 > EOF
 >
 > ![](media/media/image219.png){width="6.267716535433071in"
-> height="3.3055555555555554in"}
+> height="3.3055555555555554in"}✅5
 
 **Langkah 2: Konfigurasi Fluent Bit**
 
@@ -3146,7 +3144,7 @@ height="1.3686581364829395in"}
 > ![](media/media/image85.png){width="6.267716535433071in"
 > height="5.361111111111111in"}
 
-**6.2 Verifikasi urutan starup**
+**6.2 Verifikasi urutan starup** ✅5
 
 > \# Cek semua service
 >
@@ -3187,7 +3185,7 @@ height="1.3686581364829395in"}
 > ![](media/media/image69.png){width="6.267716535433071in"
 > height="0.625in"}
 
-**6.4 Verifikasi log masuk kePostreSQL**
+**6.4 Verifikasi log masuk kePostreSQL**✅5 ❌5
 
 > docker exec -it postgres-db psql -U labuser -d labdb \<\< \'SQLEOF\'
 >
@@ -3239,7 +3237,7 @@ height="1.3686581364829395in"}
 > ![](media/media/image152.png){width="5.953125546806649in"
 > height="3.1041666666666665in"}
 
-**6.4 Query analisis log**
+**6.4 Query analisis log** ✅5 ✅5 ✅5
 
 > docker exec -it postgres-db psql -U labuser -d labdb \<\< \'SQLEOF\'
 >
@@ -3321,7 +3319,7 @@ height="1.3686581364829395in"}
 > ![](media/media/image39.png){width="6.267716535433071in"
 > height="3.6527777777777777in"}
 
-**6.5 Query analisis log**
+**6.5 Query analisis log** ✅5
 
 docker exec -it postgres-db psql -U labuser -d labdb \<\< \'SQLEOF\'
 
@@ -3404,7 +3402,7 @@ height="0.7694400699912511in"}
 ![](media/media/image144.png){width="6.125in"
 height="2.2604166666666665in"}
 
-**6.6 Gunakan Flask API untuk query log**
+**6.6 Gunakan Flask API untuk query log** ✅5 ✅5 ❌5 ❌5
 
 docker exec postgres-db psql -U labuser -d labdb \<\< \'SQLEOF\'
 
@@ -3484,7 +3482,7 @@ height="2.736111111111111in"}
 ![](media/media/image56.png){width="6.267716535433071in"
 height="0.8472222222222222in"}
 
-**Langkah 7: Debugging- Jika Log Maih Tidak Muncul**
+**Langkah 7: Debugging- Jika Log Maih Tidak Muncul** ❌5
 
 Ikuti langkah-langkah ini secara berurutan:
 
@@ -3969,7 +3967,6 @@ height="2.4027777777777777in"}
 1.  Buka Dashboards (menu kiri)
 
 2.  Buka folder Lab PENS → terdapat 3 dashboard:
-
     - Docker Host Overview --- gauge CPU/Memory/Disk, grafik time-series
 
     - Container Metrics --- CPU/Memory/Network per container
@@ -4092,7 +4089,7 @@ menunjukkan kemampuan monitoring mendeteksi anomali secara real-time.
 
 > Jawab :
 
-- Model *pull-based* seperti Prometheus bekerja dengan cara server
+- Model _pull-based_ seperti Prometheus bekerja dengan cara server
   monitoring
 
 - mengambil data metrics langsung dari target secara berkala melalui
@@ -4100,7 +4097,7 @@ menunjukkan kemampuan monitoring mendeteksi anomali secara real-time.
   monitoring CPU, memory, dan performa container karena Prometheus dapat
   mengetahui apakah target aktif atau tidak.
 
-- Sedangkan model *push-based* seperti Fluent Bit bekerja dengan cara
+- Sedangkan model _push-based_ seperti Fluent Bit bekerja dengan cara
   client atau agent mengirim data log langsung ke server monitoring.
   Model ini cocok untuk log analytics dan pengiriman data secara
   real-time.
@@ -4110,7 +4107,7 @@ menunjukkan kemampuan monitoring mendeteksi anomali secara real-time.
 
 > Jawab :
 >
-> PromQL (*Prometheus Query Language*) adalah bahasa query yang
+> PromQL (_Prometheus Query Language_) adalah bahasa query yang
 > digunakan untuk membaca dan menganalisis metrics pada Prometheus.
 > Dengan PromQL, pengguna dapat menghitung rata-rata, total, maupun
 > penggunaan resource sistem. Contoh query untuk menghitung rata-rata
@@ -4203,7 +4200,7 @@ height="3.263888888888889in"}
 > ![](media/media/image31.png){width="6.267716535433071in"
 > height="2.1666666666666665in"}
 >
-> Query : *topk(3, container_memory_usage_bytes)*
+> Query : _topk(3, container_memory_usage_bytes)_
 >
 > Query tersebut digunakan untuk menampilkan 3 container dengan
 > penggunaan memory tertinggi.
